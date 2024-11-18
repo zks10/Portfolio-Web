@@ -8,6 +8,8 @@ import navIcon3 from '../assets/img/nav-icon3.svg';
 export const NavBar = () => {
     const [ activeLink, setActiveLink] = useState ('home');
     const [ scrolled, setScrolled ] = useState(false);
+    const [hover, setHover] = useState(false);
+
 
     useEffect(() => {
         const onScroll = () => {
@@ -43,13 +45,26 @@ export const NavBar = () => {
                     </Nav>
                     <span className='navbar-text'>
                         <div className="social-icon">
-                            <a href = '#'><img src={navIcon1} alt=""/></a>
-                            <a href = '#'><img src={navIcon2} alt=""/></a>
-                            <a href = '#'><img src={navIcon3} alt=""/></a>
+                            <a href="https://www.linkedin.com/in/kevin-zhu-aa2213263"  target="_blank"  rel="noopener noreferrer"><img src={navIcon1} alt="LinkedIn Icon" /> </a>
+                            <a href = 'https://github.com/zks10' target="_blank" rel="noopener noreferrer"><img src={navIcon2} alt=""/></a>
+                            <a href = 'https://www.instagram.com/kevin._.zhu/' target="_blank" rel="noopener noreferrer"><img src={navIcon3} alt=""/></a>
                         </div>
-                        <button className="vvd" onClick={() => console.log('connect')}>
-                            <span>Let's connect</span>
-                        </button>
+                        <button
+      className="vvd"
+      onClick={() => console.log('connect')}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{ color: hover ? 'black' : 'white' }} // Toggle color on hover
+    >
+      <Nav.Link
+        href="#connect"
+        className={activeLink === 'connect' ? 'active navbar-link' : 'navbar-link'}
+        onClick={() => onUpdateActiveLink('connect')}
+        style={{ color: 'inherit' }} // Inherit color from button
+      >
+        Let's connect
+      </Nav.Link>
+    </button>
                     </span>
                 </Navbar.Collapse>
             </Container>
