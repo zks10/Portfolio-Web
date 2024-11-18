@@ -240,6 +240,18 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to bottom, rgba(18, 18, 18, 0) 0%, rgba(18, 18, 18, 1) 100%);
+  z-index: 1;
 }
 .banner .tagline {
   font-weight: 700;
@@ -307,50 +319,156 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 0 0 50px 0;
   position: relative;
 }
-.skill-bx {
-  background: #151515;
-  border-radius: 64px;
-  text-align: center;
-  padding: 60px 50px;
-  margin-top: -60px;
+.skill::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, rgba(18, 18, 18, 0) 0%, rgba(18, 18, 18, 1) 100%);
+  z-index: 1;
 }
-.skill h2 {
-	font-size: 45px;
-	font-weight: 700;
-}
-.skill p {
-    color: #B8B8B8;
-    font-size: 18px;
-    letter-spacing: 0.8px;
-    line-height: 1.5em;
-    margin: 14px 0 75px 0;
-}
-.skill-slider {
-  width: 80%;
-  margin: 0 auto;
-  position: relative;
-}
-.skill-slider .item img {
-  width: 50%;
-  margin: 0 auto 15px auto;
-}
-.background-image-left {
-  top: 28%;
+.skill::after {
+  content: "";
   position: absolute;
   bottom: 0;
-  width: 40%;
-  z-index: -4;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to bottom, rgba(19, 19, 19, 0) 0%, rgba(19, 19, 19, 1) 100%);
+  z-index: 3;
 }
+.skill-bx {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  padding: 40px;
+
+  padding: 60px 50px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  margin-top: -50px;
+  z-index: 2; /* Ensure it appears above background and pseudo-elements */
+
+  background: #151515; /* Ensure background remains consistent */
+}
+
+.skill-bx h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.skill-bx p {
+  font-size: 1rem;
+  color: #b8b8b8;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.skill-slider .item {
+  text-align: center;
+  margin: 20px;
+  color: #ffffff;
+}
+
+.skill-slider .item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #ffffff;
+}
+
+.skill-slider .item h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.skill-slider .item p {
+  font-size: 0.9rem;
+  color: #b8b8b8;
+  margin: 0;
+}
+.background-image-left {
+  top: 0; /* Align with the top of the section */
+  position: absolute; /* Overlay the section background */
+  bottom: 0;
+  width: 100%; /* Ensure it spans the full width */
+  z-index: -1; /* Place it behind the content */
+  aspect-ratio: 3.09 / 1;
+}
+.about-me, .skill {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.about-me, .banner {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.section__title {
+  font-size: 45px; /* Adjust as needed */
+  font-weight: 700; /* Bold text for emphasis */
+  color: #ffffff; /* Match your website's color scheme */
+  text-align: center; /* Center the title */
+  margin-bottom: 20px; /* Add spacing below the title */
+}
+
+.section__title--aboutme {
+  letter-spacing: 1.2px; /* Slight spacing for a clean look */
+  text-transform: uppercase; /* Optional: Makes the title all caps */
+}
+
+.section__subtitle {
+  font-size: 18px; /* Adjust for smaller text */
+  color: #ffffff; /* Slightly lighter text color */
+  text-align: center; /* Center-align the subtitle */
+  line-height: 1.6; /* Better readability */
+  margin-bottom: 30px; /* Add space below the subtitle */
+}
+
+.section__subtitle--aboutme {
+  font-style: italic; /* Optional: Add a subtle style */
+  font-weight: 400; /* Normal weight for contrast with title */
+  max-width: 800px; /* Limit subtitle width for better readability */
+  margin: 0 auto; /* Center the text block */
+}
+
+
 
 /************ Projects Css ************/
 .project {
-  padding: 80px 0;
-  position: relative;
-  background-color: black;
+  padding: 0 0 50px 0;
+  background-color: #131313;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.project::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, rgba(18, 18, 18, 0) 0%, rgba(18, 18, 18, 1) 100%);
+  z-index: 2;
 }
 .project h2 {
+  margin-top: 80px;
 	font-size: 45px;
 	font-weight: 700;
+  color: #ffffff;
   text-align: center;
 }
 .project p {
@@ -362,15 +480,17 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   text-align: center;
   width: 56%;
 }
+
 .project .nav.nav-pills {
   width: 72%;
-  margin: 0 auto;
+  margin: 0 auto 40px auto;
   border-radius: 50px;
   background-color: rgb(255 255 255 / 10%);
   overflow: hidden;
 }
 .project .nav.nav-pills .nav-item {
   width: 33.33333%;
+  
 }
 .project .nav.nav-pills .nav-link {
   background-color: transparent;
@@ -385,6 +505,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   transition: 0.3s ease-in-out;
   text-align: center;
   z-index: 0;
+}
+.project .row{
+  margin-bottom: 40px;
 }
 .project .nav.nav-pills .nav-link::before {
     content: "";
@@ -415,23 +538,29 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 0 55px 55px 0;
 }
+
 .proj-imgbx {
-  position: relative;
-  border-radius: 30px;
-  overflow: hidden;
-  margin-bottom: 24px;
+    width: 100%; /* Allow flexibility based on grid layout */
+    height: 250px; /* Matches image height plus potential padding/margin */
+    overflow: hidden; /* Ensures content stays within the bounds */
+    position: relative;
+    border-radius: 30px;
 }
+
+
 .proj-imgbx::before {
   content: "";
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-  opacity: 0.85;
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 0;
-  transition: 0.4s ease-in-out;
+  height: 100%;
+  background: rgba(0, 0, 0, 0); /* Transparent by default */
+  transition: background 0.3s ease-in-out;
+  z-index: 1; /* Place overlay above the image */
 }
 .proj-imgbx:hover::before {
-  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay on hover */
 }
 .proj-txtx {
   position: absolute;
@@ -439,12 +568,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: 0.5s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  color: #fff;
+  z-index: 2;
   opacity: 0;
   width: 100%;
 }
 .proj-imgbx:hover .proj-txtx {
-  top: 50%;
   opacity: 1;
 }
 .proj-txtx h4 {
@@ -470,16 +600,49 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Projects Css ************/
 .contact {
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  background-image: url('./assets/img/banner-bg-smooth.png');
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
   padding: 60px 0 200px 0;
 }
 .contact img {
-  width: 92%;
+  animation: updown 2s linear infinite;
+}
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, rgba(19, 19, 19, 0) 0%, rgba(19, 19, 19, 1) 100%);
+  z-index: 1;
+}
+.contact::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to bottom, rgba(18, 18, 18, 0) 0%, rgba(18, 18, 18, 1) 100%);
+  z-index: 3;
+}
+.contact-img {
+  max-width: 40%; /* Adjust the percentage to control the size */
+  height: auto; /* Maintain the aspect ratio */
+  display: block; /* Center align */
+  margin: 0 auto; /* Center align */
 }
 .contact h2 {
 	font-size: 45px;
 	font-weight: 700;
+  margin-top: 40px;
   margin-bottom: 30px;
+  color:#fff;
+  z-index: 3;
 }
 .contact form input, .contact form textarea {
   width: 100%;
@@ -543,10 +706,30 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /************ Footer Css ************/
 .footer {
   padding: 0 0 50px 0;
-  background-image: url('./assets/img/footer-bg.png');
+  background-color: #121212;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, rgba(18, 18, 18, 0) 0%, rgba(18, 18, 18, 1) 100%);
+  z-index: 1;
+}
+.footer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to bottom, rgba(18, 18, 18, 0) 0%, rgba(18, 18, 18, 1) 100%);
+  z-index: 3;
 }
 .newsletter-bx {
   background: #FFFFFF;
@@ -617,4 +800,138 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #B8B8B8;
   letter-spacing: 0.5px;
   margin-top: 20px;
+}
+
+.proj-imgbx img {
+  width: 100%; /* Ensures images fill their container width */
+  height: 250px; /* Set a consistent height */
+  object-fit: cover; /* Crop or scale images proportionally to fit */
+  transition: transform 0.3s ease-in-out; /* Retain hover effect */
+}
+.proj-imgbx:hover img {
+  transform: scale(1.05);
+}
+
+.about-me {
+  padding: 100px 0;
+  background-image: url('./assets/img/banner-bg-smooth.png');
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.about-me::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, rgba(18, 18, 18, 0) 0%, rgba(18, 18, 18, 1) 100%);
+  z-index: 1;
+}
+.about-me::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to bottom, rgba(18, 18, 18, 0) 0%, rgba(18, 18, 18, 1) 100%);
+  z-index: 1;
+}
+.about-me h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.about-me p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+.about-me-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.image-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center; /* Centers the images horizontally */
+  margin-top: 1rem;
+}
+
+.service img {
+  border-radius: 0.5rem;
+  box-shadow: var(--bs);
+  max-width: 200px;
+}
+
+.qingdao {
+  margin: 1.5rem auto 0;
+  width: 50%;
+}
+
+@media (min-width: 800px) {
+  .about-me-content {
+      flex-direction: row;
+      gap: 2em;
+  }
+
+  .service {
+      flex: 1;
+  }
+}
+/* Artwork Container */
+.artwork-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.artwork-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Artwork Images */
+.artwork-img {
+  width: auto; /* Maintain the original width of the image */
+  height: 450px; /* Set a fixed height for consistency */
+  object-fit: contain; /* Ensure the image scales proportionally */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+
+/* Artwork Title */
+.artwork-title {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Adjust Row Gap */
+.row {
+  margin-left: 0;
+  margin-right: 0;
+  row-gap: 20px; /* Adds vertical spacing between rows */
 }

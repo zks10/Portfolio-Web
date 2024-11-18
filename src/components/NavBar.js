@@ -40,31 +40,32 @@ export const NavBar = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
+                        <Nav.Link href="#aboutme"  className={activeLink === 'aboutme' ? 'active navbar-link' : 'navbar-link' }onClick={() => onUpdateActiveLink('aboutme')}>About Me</Nav.Link>
                         <Nav.Link href="#skills"  className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link' }onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
                         <Nav.Link href="#projects"  className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'}onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
                     </Nav>
                     <span className='navbar-text'>
-                        <div className="social-icon">
+                        {/* <div className="social-icon">
                             <a href="https://www.linkedin.com/in/kevin-zhu-aa2213263"  target="_blank"  rel="noopener noreferrer"><img src={navIcon1} alt="LinkedIn Icon" /> </a>
                             <a href = 'https://github.com/zks10' target="_blank" rel="noopener noreferrer"><img src={navIcon2} alt=""/></a>
                             <a href = 'https://www.instagram.com/kevin._.zhu/' target="_blank" rel="noopener noreferrer"><img src={navIcon3} alt=""/></a>
-                        </div>
+                        </div> */}
                         <button
-      className="vvd"
-      onClick={() => console.log('connect')}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      style={{ color: hover ? 'black' : 'white' }} // Toggle color on hover
-    >
-      <Nav.Link
-        href="#connect"
-        className={activeLink === 'connect' ? 'active navbar-link' : 'navbar-link'}
-        onClick={() => onUpdateActiveLink('connect')}
-        style={{ color: 'inherit' }} // Inherit color from button
-      >
-        Let's connect
-      </Nav.Link>
-    </button>
+                            className="vvd"
+                            onClick={() => console.log('connect')}
+                            onMouseEnter={() => setHover(true)}
+                            onMouseLeave={() => setHover(false)}
+                            style={{ color: hover ? 'black' : 'white' }} // Toggle color on hover
+                            >
+                            <Nav.Link
+                                href="#connect"
+                                className={activeLink === 'connect' ? 'active navbar-link' : 'navbar-link'}
+                                onClick={() => onUpdateActiveLink('connect')}
+                                style={{ color: 'inherit' }} // Inherit color from button
+                            >
+                                Let's connect
+                            </Nav.Link>
+                        </button>
                     </span>
                 </Navbar.Collapse>
             </Container>

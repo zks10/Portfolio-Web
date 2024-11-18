@@ -9,7 +9,8 @@ export const Banner = () => {
     const toRotate = [ "Software Developer", "Full Stack Devoloper", "Data Analyst"];
     const [text, setText] = useState('');
     const [delta, setDelta] = useState(3000 - Math.random() * 100);
-    const period = 2000;
+    const period = 3000; 
+
 
     useEffect(() => {
         let ticker = setInterval(()=>{
@@ -49,7 +50,9 @@ export const Banner = () => {
                         <span className="tagline">Welcome to my Portfolio</span>
                         <h1>{"Hi, I'm Kevin"} </h1>
                         <h2><span className="wrap">{text}</span></h2>
-                        <p>blasdfiuoahgefoiuah</p>
+                        <p>
+                        I'm a passionate developer specializing in full-stack development, software engineering, and data analysis. Let's build something amazing together!
+                        </p>
                     </Col>
                     <Col xs={12} md={6} xl={5}>
                         <img src={headerImg} alt="Header Img"/>

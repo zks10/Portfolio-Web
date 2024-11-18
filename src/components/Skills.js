@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import meter1 from '../assets/img/meter1.svg' 
 import meter2 from '../assets/img/meter2.svg' 
 import meter3 from '../assets/img/meter3.svg' 
-import colorSharp from "../assets/img/color-sharp.png"
+import colorSharp from "../assets/img/banner-bg-smooth.png"
 
 export const Skills = () => {
     const responsive = {
@@ -28,38 +28,55 @@ export const Skills = () => {
     };
     
     return (
-        <section className="skill" id = "skills">
-            <Container>
-                <Row>
-                    <Col>
-                        <div className = "skill-bx">
-                            <h2>
-                                Skills
-                            </h2>
-                            <p>sfqeiufhqoifuhoiuhoi </p>
-                            <Carousel responsive={responsive} infinite={true} className="skill-slider">
-                                <div className="item">
-                                    <img src = {meter1} alt='Image' />
-                                    <h5>Database Design</h5>
-                                </div>
-                                <div className="item">
-                                    <img src = {meter2} alt='Image' />
-                                    <h5>Software Development</h5>
-                                </div>
-                                <div className="item">
-                                    <img src = {meter3} alt='Image' />
-                                    <h5>Web Development</h5>
-                                </div>
-                                <div className="item">
-                                    <img src = {meter1} alt='Image' />
-                                    <h5>Data Analyst</h5>
-                                </div>
-                            </Carousel>
-                        </div>
-                    </Col>
-                </Row>
-            </Container>
-            <img className="background-image-left" src = {colorSharp} />
-        </section>
+        <section className="skill" id="skills">
+        <Container>
+            <Row>
+                <Col>
+                    <div className="skill-bx">
+                        <h2>Skills</h2>
+                        <p>
+                            My technical and professional skills span a range of areas, 
+                            reflecting my academic and practical experience in mathematics, 
+                            data analysis, and software development.
+                        </p>
+                        <Carousel responsive={responsive} infinite={true} className="skill-slider">
+                            <div className="item">
+                                <img src={meter1} alt="Image" />
+                                <h5>Programming Languages</h5>
+                                <p>Python, R, C++, JavaScript, SQL</p>
+                            </div>
+                            <div className="item">
+                                <img src={meter2} alt="Image" />
+                                <h5>Data Analysis</h5>
+                                <p>Pandas, NumPy, Scikit-learn, Power BI</p>
+                            </div>
+                            <div className="item">
+                                <img src={meter3} alt="Image" />
+                                <h5>Machine Learning</h5>
+                                <p>TensorFlow, PyTorch, NLP</p>
+                            </div>
+                            <div className="item">
+                                <img src={meter1} alt="Image" />
+                                <h5>Web Development</h5>
+                                <p>React, Node.js, HTML, CSS</p>
+                            </div>
+                            <div className="item">
+                                <img src={meter2} alt="Image" />
+                                <h5>Financial Modeling</h5>
+                                <p>Portfolio Optimization, Risk Management</p>
+                            </div>
+                            <div className="item">
+                                <img src={meter3} alt="Image" />
+                                <h5>Collaboration Tools</h5>
+                                <p>Git, Jupyter Notebook, RStudio</p>
+                            </div>
+                        </Carousel>
+                    </div>
+                </Col>
+            </Row>
+        </Container>
+        <img className="background-image-left" src={colorSharp} alt="Background" />
+    </section>
+    
     )
 }
