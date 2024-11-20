@@ -493,7 +493,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   overflow: hidden;
 }
 .project .nav.nav-pills .nav-item {
-  width: 33.33333%;
+  width: 50%;
   
 }
 .project .nav.nav-pills .nav-link {
@@ -610,7 +610,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-repeat: no-repeat;
   position: relative;
   padding: 60px 0 200px 0;
-  z-index: -1;
+  z-index: 0;
 }
 .contact img {
   animation: updown 2s linear infinite;
@@ -945,7 +945,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   left: 0;
   width: 100%; /* Full viewport width */
   height: 100%; /* Full viewport height */
-  z-index: 0; /* Keep it behind the content */
+  z-index: 1; /* Keep it behind the content */
   pointer-events: none; /* Ensure it doesn't interfere with interaction */
   overflow: hidden;
 }
@@ -977,4 +977,45 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   100% {
     transform: translateY(200px);
   }
+}
+/* Rocket Container */
+.rocket-container {
+  position: fixed;
+  bottom: -80px; /* Initially hidden below the viewport */
+  right: 20px; /* Fixed at the bottom-right corner */
+  z-index: 9999;
+  opacity: 0; /* Start fully invisible */
+  transition: bottom 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+}
+
+/* Rocket Visible State */
+.rocket-container.show {
+  bottom: 20px; /* Bring the rocket into view */
+  opacity: 1; /* Fully visible */
+}
+
+/* Rocket Image */
+#rocket-icon {
+  width: 80px; /* Adjust size of the rocket */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out; /* Smooth hover scaling */
+}
+
+#rocket-icon:hover {
+  transform: scale(1.2); /* Enlarge slightly on hover */
+}
+
+/* Rocket Launch Animation */
+@keyframes rocketLaunch {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-2000px); /* Fly out of the viewport */
+  }
+}
+
+.rocket-animate {
+  animation: rocketLaunch 1s linear forwards;
 }

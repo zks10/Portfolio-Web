@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Navbar, Nav, Container } from "react-bootstrap"
 import logo from '../assets/img/logo.svg';
-import navIcon1 from '../assets/img/nav-icon1.svg';
-import navIcon2 from '../assets/img/nav-icon4.svg';
-import navIcon3 from '../assets/img/nav-icon3.svg';
 
 export const NavBar = () => {
     const [ activeLink, setActiveLink] = useState ('home');
@@ -43,13 +40,15 @@ export const NavBar = () => {
                         <Nav.Link href="#aboutme"  className={activeLink === 'aboutme' ? 'active navbar-link' : 'navbar-link' }onClick={() => onUpdateActiveLink('aboutme')}>About Me</Nav.Link>
                         <Nav.Link href="#skills"  className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link' }onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
                         <Nav.Link href="#projects"  className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'}onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
+                        <Nav.Link 
+                            href="/assets/Kevin_Zhu_Resume.pdf" 
+                            download="Kevin_Zhu_Resume.pdf" 
+                            className="navbar-link"
+                        >
+                            Resume
+                        </Nav.Link>
                     </Nav>
                     <span className='navbar-text'>
-                        {/* <div className="social-icon">
-                            <a href="https://www.linkedin.com/in/kevin-zhu-aa2213263"  target="_blank"  rel="noopener noreferrer"><img src={navIcon1} alt="LinkedIn Icon" /> </a>
-                            <a href = 'https://github.com/zks10' target="_blank" rel="noopener noreferrer"><img src={navIcon2} alt=""/></a>
-                            <a href = 'https://www.instagram.com/kevin._.zhu/' target="_blank" rel="noopener noreferrer"><img src={navIcon3} alt=""/></a>
-                        </div> */}
                         <button
                             className="vvd"
                             onClick={() => console.log('connect')}

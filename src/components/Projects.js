@@ -5,6 +5,7 @@ import colorSharp2 from '../assets/img/banner-bg-smooth.png';
 import projImg1 from '../assets/img/project-img1.png';
 import projImg2 from '../assets/img/project-img2.png';
 import projImg3 from '../assets/img/project-img3.jpg';
+import projImg4 from '../assets/img/project4.png';
 import artImg1 from '../assets/img/1.jpg';
 import artImg2 from '../assets/img/2.jpg';
 import artImg3 from '../assets/img/3.jpg';
@@ -38,6 +39,7 @@ export const Projects = () => {
         { title: "Great Lakes Database", description: "Cloud-based database for weather data analysis.", imgUrl: projImg1 },
         { title: "CC3k Simulation", description: "A rogue-like game using C++ and MVC.", imgUrl: projImg2 },
         { title: "Daily Checklist", description: "Built with React.", imgUrl: projImg3 },
+        { title: "Donuts Design", description: "Delicious Donut contructed with Blender.", imgUrl: projImg4 },
     ];
     const artworks = [
         { title: "Artwork 1", description: "Description for Artwork 1", imgUrl: artImg1 },
@@ -67,10 +69,10 @@ export const Projects = () => {
                         </Nav.Item>
                     </Nav>
                     <Tab.Content>
-                        <Tab.Pane eventKey="first">
+                        <Tab.Pane eventKey="first" >
                             <Row>
                                 {projects.map((project, index) => (
-                                    <ProjectCard key={index} {...project} />
+                                    <ProjectCard key={index} {...project} style={{ zIndex: 2 }} />
                                 ))}
                             </Row>
                         </Tab.Pane>

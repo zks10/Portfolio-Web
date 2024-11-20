@@ -7,6 +7,7 @@ import { Projects } from './components/Projects'
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { AboutMe } from './components/AboutMe';
+import { RocketToTop } from './components/RocketToTop';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-scroll';
 
@@ -22,6 +23,7 @@ function App() {
       <Projects />
       <Contact />
       <Footer />
+      <RocketToTop />
       <Link to="projects" smooth={true} duration={500}></Link>
     </div>
   );

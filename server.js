@@ -1,50 +1,58 @@
 const express = require("express");
-const router = express.Router();
 const cors = require("cors");
-const nodemailer = require("nodemailer");
+const bodyParser = require("body-parser");
+const fs = require("fs");
+const XLSX = require("xlsx");
 
-// server used to send send emails
 const app = express();
+const PORT = 5001;
+
 app.use(cors());
-app.use(express.json());
-app.use("/", router);
-app.listen(5000, () => console.log("Server Running"));
+app.use(bodyParser.json());
 
-const contactEmail = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: "********@gmail.com",
-    pass: ""
-  },
-});
+// Endpoint to receive form data
+app.post("/contact", (req, res) => {
+  const formData = req.body;
 
-contactEmail.verify((error) => {
-  if (error) {
-    console.log(error);
+  // Filepath for the Excel file
+  const filePath = "./contacts.xlsx";
+
+  // Check if the file exists
+  let workbook;
+  if (fs.existsSync(filePath)) {
+    // Read the existing file
+    workbook = XLSX.readFile(filePath);
   } else {
-    console.log("Ready to Send");
+    // Create a new workbook and add an empty sheet
+    workbook = XLSX.utils.book_new();
+    const sheet = XLSX.utils.json_to_sheet([]);
+    XLSX.utils.book_append_sheet(workbook, sheet, "Contacts");
   }
+
+  // Get the current sheet or create a new one
+  let sheet = workbook.Sheets["Contacts"];
+  let data = [];
+  if (sheet) {
+    data = XLSX.utils.sheet_to_json(sheet); // Read existing data from the sheet
+  } else {
+    sheet = XLSX.utils.json_to_sheet([]); // Create a new sheet if it doesn't exist
+    XLSX.utils.book_append_sheet(workbook, sheet, "Contacts");
+  }
+
+  // Add the new form data to the existing data
+  data.push(formData);
+
+  // Write the updated data to the sheet
+  const newSheet = XLSX.utils.json_to_sheet(data);
+  workbook.Sheets["Contacts"] = newSheet;
+
+  // Save the workbook
+  XLSX.writeFile(workbook, filePath);
+
+  res.json({ code: 200, message: "Data saved successfully" });
 });
 
-router.post("/contact", (req, res) => {
-  const name = req.body.firstName + req.body.lastName;
-  const email = req.body.email;
-  const message = req.body.message;
-  const phone = req.body.phone;
-  const mail = {
-    from: name,
-    to: "********@gmail.com",
-    subject: "Contact Form Submission - Portfolio",
-    html: `<p>Name: ${name}</p>
-           <p>Email: ${email}</p>
-           <p>Phone: ${phone}</p>
-           <p>Message: ${message}</p>`,
-  };
-  contactEmail.sendMail(mail, (error) => {
-    if (error) {
-      res.json(error);
-    } else {
-      res.json({ code: 200, status: "Message Sent" });
-    }
-  });
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
