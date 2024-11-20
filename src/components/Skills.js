@@ -1,15 +1,14 @@
+import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Container, Row, Col } from "react-bootstrap";
-import meter1 from '../assets/img/meter1.svg' 
-import meter2 from '../assets/img/meter2.svg' 
-import meter3 from '../assets/img/meter3.svg' 
-import colorSharp from "../assets/img/banner-bg-smooth.png"
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+import colorSharp from "../assets/img/banner-bg-smooth.png";
 
 export const Skills = () => {
     const responsive = {
         superLargeDesktop: {
-          // the naming can be any, depends on you.
           breakpoint: { max: 4000, min: 3000 },
           items: 5
         },
@@ -26,57 +25,60 @@ export const Skills = () => {
           items: 1
         }
     };
-    
+
+    // Skill data with percentages
+    const skills = [
+        { title: "Programming Languages", percentage: 91, description: "Python, R, C++, JavaScript, SQL" },
+        { title: "Data Analysis", percentage: 83, description: "Pandas, NumPy, Scikit-learn, Power BI" },
+        { title: "Machine Learning", percentage: 87, description: "TensorFlow, PyTorch, NLP" },
+        { title: "Web Development", percentage: 90, description: "React, Node.js, HTML, CSS" },
+        { title: "Financial Modeling", percentage: 70, description: "Portfolio Optimization, Risk Management" },
+        { title: "Collaboration Tools", percentage: 84, description: "Git, Jupyter Notebook, RStudio" }
+    ];
+
     return (
         <section className="skill" id="skills">
-        <Container>
-            <Row>
-                <Col>
-                    <div className="skill-bx">
-                        <h2>Skills</h2>
-                        <p>
-                            My technical and professional skills span a range of areas, 
-                            reflecting my academic and practical experience in mathematics, 
-                            data analysis, and software development.
-                        </p>
-                        <Carousel responsive={responsive} infinite={true} className="skill-slider">
-                            <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>Programming Languages</h5>
-                                <p>Python, R, C++, JavaScript, SQL</p>
-                            </div>
-                            <div className="item">
-                                <img src={meter2} alt="Image" />
-                                <h5>Data Analysis</h5>
-                                <p>Pandas, NumPy, Scikit-learn, Power BI</p>
-                            </div>
-                            <div className="item">
-                                <img src={meter3} alt="Image" />
-                                <h5>Machine Learning</h5>
-                                <p>TensorFlow, PyTorch, NLP</p>
-                            </div>
-                            <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>Web Development</h5>
-                                <p>React, Node.js, HTML, CSS</p>
-                            </div>
-                            <div className="item">
-                                <img src={meter2} alt="Image" />
-                                <h5>Financial Modeling</h5>
-                                <p>Portfolio Optimization, Risk Management</p>
-                            </div>
-                            <div className="item">
-                                <img src={meter3} alt="Image" />
-                                <h5>Collaboration Tools</h5>
-                                <p>Git, Jupyter Notebook, RStudio</p>
-                            </div>
-                        </Carousel>
-                    </div>
-                </Col>
-            </Row>
-        </Container>
-        <img className="background-image-left" src={colorSharp} alt="Background" />
-    </section>
-    
-    )
-}
+            <Container>
+                <Row>
+                    <Col>
+                        <div className="skill-bx">
+                            <h2>Skills</h2>
+                            <p>
+                                My technical and professional skills span a range of areas, 
+                                reflecting my academic and practical experience in mathematics, 
+                                data analysis, and software development.
+                            </p>
+                            <Carousel responsive={responsive} infinite={true} className="skill-slider">
+                                {skills.map((skill, index) => (
+                                    <div className="item" key={index}>
+                                        <svg style={{ height: 0 }}>
+                                            <defs>
+                                                <linearGradient id={`gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                                                    <stop offset="0%" stopColor="#AA367C" />
+                                                    <stop offset="100%" stopColor="#4A2FBD" />
+                                                </linearGradient>
+                                            </defs>
+                                        </svg>
+                                        <CircularProgressbar
+                                            value={skill.percentage}
+                                            text={`${skill.percentage}%`}
+                                            styles={buildStyles({
+                                                textColor: "#fff",
+                                                pathColor: `url(#gradient-${index})`,
+                                                trailColor: "#d6d6d6",
+                                                textSize: "16px"
+                                            })}
+                                        />
+                                        <h5>{skill.title}</h5>
+                                        <p>{skill.description}</p>
+                                    </div>
+                                ))}
+                            </Carousel>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+            <img className="background-image-left" src={colorSharp} alt="Background" />
+        </section>
+    );
+};
